@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const generateToken = user => {
   return jwt.sign(user, SECRET, {
-    expiresIn: 600 // 单位是秒
+    expiresIn: 60000 // 单位是秒
   })
 }
 

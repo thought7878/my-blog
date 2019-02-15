@@ -16,6 +16,8 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 const morgan = require('morgan')
 app.use(morgan('tiny'))
+const cors = require('cors')
+app.use(cors())
 
 const routes = require('./routes')
 routes(app)
