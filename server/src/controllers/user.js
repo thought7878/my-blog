@@ -18,7 +18,7 @@ module.exports.login = async (req, res) => {
     if (!u.comparePassword(password)) {
       throw Error('密码错误')
     }
-    res.json({ token: generateToken({ username: u.username }) })
+    res.json({ token: generateToken({ username: u.username, admin: u.admin }) })
   } catch (error) {
     res.status(406).json({ msg: '用户名密码错误' })
   }
