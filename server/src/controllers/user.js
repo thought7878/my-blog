@@ -9,3 +9,16 @@ module.exports.signup = async (req, res) => {
     res.status(406).json({ msg: '用户名重复' })
   }
 }
+
+module.exports.login = async (req, res) => {
+  const { username, password } = req.body
+  try {
+    const u = await User.findOne({ username })
+    if (!u.comparePassword(password)) {
+      throw Error('密码错误')
+    }
+    res.json({ username: u.username })
+  } catch (error) {
+    res.status(406).json({ msg: '用户名密码错误' })
+  }
+}

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/index.js",
+    "start": "nodemon --inspect ./src/index.js",
     "startDB": "mongod --dbpath=./data/ & mongo-express -u admin -p pass -d blog -H localhost -P 27017"
   },
   "author": "",
